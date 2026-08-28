@@ -6971,10 +6971,23 @@ renderItems = function() {
       <div class="sec-line" style="background:linear-gradient(270deg,#fcd9b6,transparent)"></div>`;
     wrap.appendChild(sec);
 
-    const grid = document.createElement("div");
-    grid.className = "grid grid-cols-1 sm:grid-cols-2 gap-4 mb-2";
+    let grid = null, subAtual = null;
+    const novaGrade = () => {
+      const g = document.createElement("div");
+      g.className = "grid grid-cols-2 sm:grid-cols-3 gap-3 mb-2 cc-grade-premium";
+      wrap.appendChild(g);
+      return g;
+    };
 
     filtered.forEach(item => {
+      if (item.sub && item.sub !== subAtual) {
+        subAtual = item.sub;
+        const st = document.createElement("div");
+        st.className = "cc-subgrupo-titulo";
+        st.textContent = item.sub;
+        wrap.appendChild(st);
+        grid = novaGrade();
+      } else if (!grid) { grid = novaGrade(); }
       const q = S.cart[item.id] || 0;
       const preco = _itemPreco(item);
       const esgotado = item.esgotado === true;
@@ -7019,7 +7032,6 @@ renderItems = function() {
         </div>`;
       grid.appendChild(card);
     });
-    wrap.appendChild(grid);
   });
   emptyEl.classList.toggle("hidden", vis > 0);
 };
@@ -18204,4 +18216,48 @@ body.cc-modo-cliente #cc-cat-nav-wrap{
 .cc-tl-meta{font-size:.72rem;color:#94a3b8;margin-top:4px}
 .cc-tl-previsao{font-size:.74rem;color:#64748b;font-weight:700;margin:2px 0 0}
 </style>
+<style id="cc-beach-farol-style">
+  .cc-subgrupo-titulo{
+    grid-column:1/-1;margin:18px 4px 8px;font-weight:900;font-size:.8rem;letter-spacing:.08em;
+    text-transform:uppercase;color:#0f2340;display:flex;align-items:center;gap:8px;
+  }
+  .cc-subgrupo-titulo::after{content:"";flex:1;height:2px;border-radius:2px;
+    background:linear-gradient(90deg,#c81d25,transparent)}
+  .cc-grade-premium .card{display:flex;flex-direction:column}
+  .cc-grade-premium .img-box{position:relative;aspect-ratio:1/1;height:auto!important;
+    min-height:0!important;max-height:none!important;overflow:hidden}
+  .cc-grade-premium .card-img{width:100%;height:100%;object-fit:cover;display:block}
+  .cc-grade-premium .p-3{padding:.6rem!important}
+  @media(max-width:640px){ .cc-grade-premium .tag{font-size:.6rem} }
+  #cc-rodape-institucional{
+    margin:28px auto 120px;max-width:44rem;padding:20px 18px;border-radius:20px;
+    background:#0f2340;color:#e2e8f0;font-size:.75rem;line-height:1.6
+  }
+  #cc-rodape-institucional h4{font-weight:900;color:#fff;font-size:.9rem;margin-bottom:6px}
+  #cc-rodape-institucional .un{margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.12)}
+  #cc-rodape-institucional strong{color:#fff}
+</style>
+<script id="cc-beach-farol-rodape">
+(function(){
+  function montar(){
+    var view = document.getElementById("view-cardapio");
+    var E = window.EMPRESA;
+    if(!view || !E || document.getElementById("cc-rodape-institucional")) return;
+    var el = document.createElement("footer");
+    el.id = "cc-rodape-institucional";
+    el.innerHTML =
+      '<h4>' + E.fantasia + '</h4>' +
+      '<div>' + E.razao + ' \u00b7 CNPJ ' + E.cnpj + '</div>' +
+      E.unidades.map(function(u){
+        return '<div class="un"><strong>' + u.nome + '</strong><br>' + u.endereco +
+               '<br>Contato: ' + u.fone + '</div>';
+      }).join('') +
+      '<div class="un">E-mail: <strong>' + E.email + '</strong><br>Instagram: <strong>' +
+      E.instagram + '</strong></div>';
+    view.appendChild(el);
+  }
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", montar);
+  else montar();
+})();
+</script>
 </body></html>
