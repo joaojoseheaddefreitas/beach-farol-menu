@@ -1,24 +1,36 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Beach Farol Itapuã — Cardápio e Comanda Digital" },
+      {
+        name: "description",
+        content:
+          "Cardápio digital, comanda e gestão do Beach Farol Itapuã: petiscos, moquecas, pratos especiais e bebidas em Salvador - BA.",
+      },
+      { property: "og:title", content: "Beach Farol Itapuã — Cardápio Digital" },
+      {
+        property: "og:description",
+        content:
+          "Peça pelo cardápio digital do Beach Farol Itapuã: petiscos, moquecas, pratos e bebidas geladas na praia de Itapuã.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
+    <main className="h-[100dvh] w-full">
+      <h1 className="sr-only">Beach Farol Itapuã — Cardápio Digital</h1>
+      <iframe
+        src="/app/index.html"
+        title="Beach Farol Itapuã — Cardápio e Gestão"
+        className="h-full w-full border-0"
       />
-    </div>
+    </main>
   );
 }
