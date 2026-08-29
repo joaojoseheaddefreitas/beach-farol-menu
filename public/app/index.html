@@ -6299,53 +6299,6 @@ function imprimirQRMesa() {
 @media(max-width:600px){#ab-clean-home .abch-hero{width:calc(100% - 20px)!important;aspect-ratio:2 / 1!important;border-radius:14px!important}#ab-clean-home .abch-tabs{width:calc(100% - 20px)!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;margin:12px auto 20px!important}#ab-clean-home .abch-hero-content{padding:16px 16px 18px!important}#ab-clean-home .abch-title{font-size:clamp(1.35rem,7vw,2rem)!important}}
 </style>
 
-<style id="cc-beach-farol-style">
-  .cc-subgrupo-titulo{
-    grid-column:1/-1;margin:18px 4px 8px;font-weight:900;font-size:.8rem;letter-spacing:.08em;
-    text-transform:uppercase;color:#0f2340;display:flex;align-items:center;gap:8px;
-  }
-  .cc-subgrupo-titulo::after{content:"";flex:1;height:2px;border-radius:2px;
-    background:linear-gradient(90deg,#c81d25,transparent)}
-  .cc-grade-premium .card{display:flex;flex-direction:column}
-  .cc-grade-premium .img-box{position:relative;aspect-ratio:1/1;height:auto!important;
-    min-height:0!important;max-height:none!important;overflow:hidden}
-  .cc-grade-premium .card-img{width:100%;height:100%;object-fit:cover;display:block}
-  .cc-grade-premium .p-3{padding:.6rem!important}
-  @media(max-width:640px){
-    .cc-grade-premium .card-img{border-radius:0}
-    .cc-grade-premium .tag{font-size:.6rem}
-  }
-  #cc-rodape-institucional{
-    margin:28px auto 120px;max-width:44rem;padding:20px 18px;border-radius:20px;
-    background:#0f2340;color:#e2e8f0;font-size:.75rem;line-height:1.6
-  }
-  #cc-rodape-institucional h4{font-weight:900;color:#fff;font-size:.9rem;margin-bottom:6px}
-  #cc-rodape-institucional .un{margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.12)}
-  #cc-rodape-institucional strong{color:#fff}
-</style>
-<script id="cc-beach-farol-rodape">
-(function(){
-  function montar(){
-    var view = document.getElementById("view-cardapio");
-    var E = window.EMPRESA;
-    if(!view || !E || document.getElementById("cc-rodape-institucional")) return;
-    var el = document.createElement("footer");
-    el.id = "cc-rodape-institucional";
-    el.innerHTML =
-      '<h4>' + E.fantasia + '</h4>' +
-      '<div>' + E.razao + ' \u00b7 CNPJ ' + E.cnpj + '</div>' +
-      E.unidades.map(function(u){
-        return '<div class="un"><strong>' + u.nome + '</strong><br>' + u.endereco +
-               '<br>Contato: ' + u.fone + '</div>';
-      }).join('') +
-      '<div class="un">E-mail: <strong>' + E.email + '</strong><br>Instagram: <strong>' +
-      E.instagram + '</strong></div>';
-    view.appendChild(el);
-  }
-  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", montar);
-  else montar();
-})();
-</script>
 </body></html>`);
   w.document.close();
 }
@@ -18248,10 +18201,6 @@ body.cc-modo-cliente #cc-cat-nav-wrap{
     el.innerHTML =
       '<h4>' + E.fantasia + '</h4>' +
       '<div>' + E.razao + ' \u00b7 CNPJ ' + E.cnpj + '</div>' +
-      E.unidades.map(function(u){
-        return '<div class="un"><strong>' + u.nome + '</strong><br>' + u.endereco +
-               '<br>Contato: ' + u.fone + '</div>';
-      }).join('') +
       '<div class="un">E-mail: <strong>' + E.email + '</strong><br>Instagram: <strong>' +
       E.instagram + '</strong></div>';
     view.appendChild(el);
