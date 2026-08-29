@@ -18209,4 +18209,41 @@ body.cc-modo-cliente #cc-cat-nav-wrap{
   else montar();
 })();
 </script>
+
+<style id="cc-beach-farol-v2">
+/* Grid premium também no cardápio público do cliente */
+body.cc-cardapio-full #items-wrap .cc-grade-premium{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;
+}
+@media(min-width:640px){
+  body.cc-cardapio-full #items-wrap .cc-grade-premium{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
+body.cc-cardapio-full #items-wrap .cc-grade-premium .card{width:auto!important;max-width:none!important;margin:0!important}
+body.cc-cardapio-full #items-wrap .cc-grade-premium .img-box,
+body.cc-cardapio-full #items-wrap .cc-grade-premium .card-img{aspect-ratio:1/1!important;height:auto!important;max-height:none!important;min-height:0!important;object-fit:cover}
+/* Logo institucional sobre o banner */
+#ab-clean-home .abch-hero{position:relative!important}
+#cc-logo-hero{
+  position:absolute;top:14px;right:16px;z-index:5;width:clamp(64px,12vw,110px);height:auto;
+  border-radius:50%;box-shadow:0 6px 20px rgba(0,0,0,.35);background:transparent;
+}
+@media(max-width:600px){#cc-logo-hero{top:10px;right:10px;width:58px}}
+</style>
+<script id="cc-beach-farol-logo">
+(function(){
+  var URL_LOGO = "/__l5e/assets-v1/dc82cc0d-ee35-422c-8d6b-49726fadcbc3/logo-beach-farol.png";
+  function aplicar(){
+    var hero = document.querySelector("#ab-clean-home .abch-hero");
+    if(!hero || document.getElementById("cc-logo-hero")) return;
+    var img = document.createElement("img");
+    img.id = "cc-logo-hero";
+    img.src = URL_LOGO;
+    img.alt = "Beach Farol Itapua";
+    hero.appendChild(img);
+  }
+  setInterval(aplicar, 800);
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", aplicar);
+  else aplicar();
+})();
+</script>
 </body></html>
