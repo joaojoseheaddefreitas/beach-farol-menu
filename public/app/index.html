@@ -2658,7 +2658,8 @@ function renderFooter() {
 /* ═══════════════════════════════════════
    MESA SELECT
 ═══════════════════════════════════════ */
-document.getElementById("mesa-select").addEventListener("change", function() {
+const mesaSelectEl = document.getElementById("mesa-select");
+if (mesaSelectEl) mesaSelectEl.addEventListener("change", function() {
   S.mesa = this.value ? parseInt(this.value) : null;
 });
 
