@@ -2491,7 +2491,9 @@ function renderNav() {
   nav.innerHTML = "";
 
   const clienteAtivo = (typeof ccModoClienteAtivo === "function") && ccModoClienteAtivo();
+  const FOTOS_FIXAS_CATEGORIA = { bebidas: "/__l5e/assets-v1/3b69dc25-8328-45de-9148-f976ccd8ec6d/bebidas-coco.jpg", conveniencia: "/__l5e/assets-v1/db768301-e62f-4a3b-a0b6-6530aea8db4d/sobremesas-picole.jpg" };
   const fotoCategoria = (catId) => {
+    if (FOTOS_FIXAS_CATEGORIA[catId]) return FOTOS_FIXAS_CATEGORIA[catId];
     const busca = (catId === "all") ? categorias : categorias.filter(c => c.id === catId);
     for (const c of busca) {
       const it = (c.itens || []).find(i => i.img && i.ativo !== false);
@@ -2656,7 +2658,8 @@ function renderFooter() {
 /* ═══════════════════════════════════════
    MESA SELECT
 ═══════════════════════════════════════ */
-document.getElementById("mesa-select").addEventListener("change", function() {
+const mesaSelectEl = document.getElementById("mesa-select");
+if (mesaSelectEl) mesaSelectEl.addEventListener("change", function() {
   S.mesa = this.value ? parseInt(this.value) : null;
 });
 
@@ -18198,9 +18201,14 @@ body.cc-modo-cliente #cc-cat-nav-wrap{
     if(!view || !E || document.getElementById("cc-rodape-institucional")) return;
     var el = document.createElement("footer");
     el.id = "cc-rodape-institucional";
+    var unidadesHtml = (E.unidades || []).map(function(u){
+      return '<div class="un"><strong>' + u.nome + '</strong><br>' +
+        '\uD83D\uDCCD ' + u.endereco + '<br>\uD83D\uDCDE Tel/WhatsApp: <strong>' + u.fone + '</strong></div>';
+    }).join('');
     el.innerHTML =
       '<h4>' + E.fantasia + '</h4>' +
       '<div>' + E.razao + ' \u00b7 CNPJ ' + E.cnpj + '</div>' +
+      unidadesHtml +
       '<div class="un">E-mail: <strong>' + E.email + '</strong><br>Instagram: <strong>' +
       E.instagram + '</strong></div>';
     view.appendChild(el);
