@@ -2386,6 +2386,7 @@ function showView(name, btn) {
 ═══════════════════════════════════════ */
 function popularMesaSelect() {
   const sel = document.getElementById("mesa-select");
+  if (!sel) return;
   const val = sel.value;
   sel.innerHTML = `<option value="">— Nº —</option>`;
   for(let i = 1; i <= config.numMesas; i++) {
