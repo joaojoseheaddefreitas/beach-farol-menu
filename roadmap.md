@@ -5,12 +5,14 @@
 - [x] Proteger `popularMesaSelect` (null) — corrigido
 - [ ] Revalidar cardápio no navegador (abas dinâmicas, grade 2 colunas, sem código vazando)
 
-## Novo lote (pedido do usuário)
-- [ ] Subir lote de imagens anexadas como assets CDN (balde cerveja, whiskys, drinks etc.)
-- [ ] Admin: remover chamadas HTTP/API externas que causam "Not Found" no salvar — 100% LocalStorage
+## Lote atual
+- [x] Subir lote de imagens anexadas como assets CDN (balde cerveja, whiskys, drinks etc.)
+- [ ] Admin: desligar sync/upload Supabase herdado (erro "Not Found") — 100% LocalStorage
 - [ ] Preços/nomes 100% editáveis pelo Admin (nunca carimbados na arte)
 - [ ] Drinks: máscara CSS cobrindo preço antigo na foto + preço novo em HTML sobre a imagem
-- [ ] Cervejas: usar o balde genérico para os 15 combos; nome e preço em HTML abaixo da imagem
+- [ ] Cervejas: balde da marca quando existir, balde genérico para os demais combos
 - [ ] Whiskys/demais: imagem limpa + preço digital abaixo do card
-- [ ] Travar grade pública mobile: `aspect-square w-full h-full object-cover` em todas as imgs
-- [ ] AGUARDAR restante das imagens do usuário e repetir o processo
+- [ ] Travar grade pública mobile 2 colunas (aspect-square / object-cover)
+- [ ] Remover id duplicado `bebidas_combo_5_imperio_lager`
+- [ ] Manter sobremesas/petiscos/pratos com nomes e fotos originais (só preços)
+- [ ] Verificar no navegador: salvar item no Admin sem erro + grid
