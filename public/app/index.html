@@ -2630,7 +2630,7 @@ function renderItems() {
         <div class="img-box">
           <img src="${item.img}" alt="${item.nome}" class="card-img" loading="lazy"
             onerror="this.src='https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80';this.onerror=null"/>
-          ${item.mascaraPreco ? `<span class="cc-mascara-preco">${fmtBRL(item.preco)}</span>` : ""}
+          ${item.mascaraPreco ? `<span class="cc-mascara-preco">${fmtBRL(typeof _itemPreco==="function" ? _itemPreco(item) : item.preco)}</span>` : ""}
           <span class="b-cat">${cat.icone} ${cat.nome.split(" ")[0]}</span>
           ${esgotado ? `<span class="b-time" style="background:#6b7280">😔 Esgotado</span>` : `<span class="b-time">⏱ ${item.tempo} min</span>`}
           ${item.novo && !esgotado ? `<span class="b-new">✨ Novidade</span>` : ""}
@@ -3226,6 +3226,7 @@ function onSelecionarArquivoImagem(event) {
 }
 
 function _validarUrlImagem(url) {
+  if (/^(\/|data:image\/|\.\/|images\/)/.test(url)) return true; // caminho local, CDN ou base64
   try {
     var u = new URL(url);
     return (u.protocol === "http:" || u.protocol === "https:");
@@ -7016,7 +7017,7 @@ renderItems = function() {
         <div class="img-box">
           <img src="${item.img}" alt="${item.nome}" class="card-img" loading="lazy"
             onerror="this.src='https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80';this.onerror=null"/>
-          ${item.mascaraPreco ? `<span class="cc-mascara-preco">${fmtBRL(item.preco)}</span>` : ""}
+          ${item.mascaraPreco ? `<span class="cc-mascara-preco">${fmtBRL(typeof _itemPreco==="function" ? _itemPreco(item) : item.preco)}</span>` : ""}
           <span class="b-cat">${cat.icone} ${cat.nome.split(" ")[0]}</span>
           ${esgotado
             ? `<span class="b-time" style="background:#6b7280">😔 Esgotado</span>`
