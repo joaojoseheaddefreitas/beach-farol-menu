@@ -115,9 +115,6 @@ window.COOKCONTROL_CONFIG = {
   var _online = false;
 
   function _init() {
-    // BEACH FAROL: backend externo desativado — tudo roda 100% em localStorage.
-    console.info("[Sync] desativado — modo localStorage");
-    return;
     try {
       if (typeof supabase === "undefined" || !supabase.createClient) return;
       if (SUPABASE_KEY === "COLE_SUA_CHAVE_ANON_AQUI") {
@@ -205,7 +202,7 @@ window.COOKCONTROL_CONFIG = {
 </script>
 <script>
 (function(){
-  var VER="gv_v12_beachfarol";
+  var VER="gv_v11";
   if(localStorage.getItem("solbahia_gv_ver")!==VER){
     localStorage.removeItem("solbahia_categorias");
     localStorage.setItem("solbahia_gv_ver",VER);
@@ -2060,13 +2057,6 @@ body.cc-modo-cliente #conteudo-secao-mesa{padding-bottom:110px!important}
 <img class="w-20 h-20 object-cover rounded-lg border border-gray-200" id="edit-img-preview">
 </div>
 </div>
-<div>
-<label class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1 block">Foto com preco carimbado?</label>
-<label class="flex items-center gap-2 cursor-pointer">
-<div class="tog" id="edit-mascara-tog" onclick="this.classList.toggle(&#39;on&#39;)"><div class="knob"></div></div>
-<span class="text-sm font-semibold text-gray-600">Cobrir o preco antigo da arte e mostrar o preco digital</span>
-</label>
-</div>
 </div>
 <div class="flex gap-3 mt-5">
 <button class="btn-ghost flex-1" onclick="fecharModalItem()">Cancelar</button>
@@ -2124,52 +2114,51 @@ const REAL_IMGS = {
 ═══════════════════════════════════════ */
 const DEFAULT_CATEGORIAS = [
   { id: "bebidas", nome: "Bebidas", icone: "🍹", itens: [
-    { id: "bebidas_combo_5_amstel", nome: "Combo 5 Amstel", preco: 77, desc: "Combos de Cerveja (600ml)", porcao: "5 unid · 600ml", tempo: 5, sub: "Combos de Cerveja (600ml)", ativo: true, novo: false, img: "/__l5e/assets-v1/2c22f24c-493a-43bf-afe6-18b6640ca11c/balde-amstel-criativo.jpg"},
-    { id: "bebidas_combo_5_antarctica_original", nome: "Combo 5 Antarctica Original", preco: 93, desc: "Combos de Cerveja (600ml)", porcao: "5 unid · 600ml", tempo: 5, sub: "Combos de Cerveja (600ml)", ativo: true, novo: false, img: "/__l5e/assets-v1/cf22159f-b707-419d-989f-92d075fa2322/balde-antarctica.jpg"},
-    { id: "bebidas_combo_5_heineken", nome: "Combo 5 Heineken", preco: 93, desc: "Combos de Cerveja (600ml)", porcao: "5 unid · 600ml", tempo: 5, sub: "Combos de Cerveja (600ml)", ativo: true, novo: false, img: "/__l5e/assets-v1/21af9484-137a-49d3-bb9c-eb6f49b612e3/balde-heineken.jpg"},
-    { id: "bebidas_combo_5_imperio_lager", nome: "Combo 5 Império Lager", preco: 76, desc: "Combos de Cerveja (600ml)", porcao: "5 unid · 600ml", tempo: 5, sub: "Combos de Cerveja (600ml)", ativo: true, novo: false, img: "/__l5e/assets-v1/aa166af6-18e5-4cfa-b14e-8ea83f86f7ef/balde-generico.jpg"},
-    { id: "bebidas_combo_5_itaipava", nome: "Combo 5 Itaipava", preco: 53, desc: "Combos de Cerveja (600ml)", porcao: "5 unid · 600ml", tempo: 5, sub: "Combos de Cerveja (600ml)", ativo: true, novo: false, img: "/__l5e/assets-v1/7a088127-deef-4b76-9eea-7fea4ac6c634/balde-itaipava.jpg"},
-    { id: "bebidas_combo_5_stella_artois", nome: "Combo 5 Stella Artois", preco: 93, desc: "Combos de Cerveja (600ml)", porcao: "5 unid · 600ml", tempo: 5, sub: "Combos de Cerveja (600ml)", ativo: true, novo: false, img: "/__l5e/assets-v1/ca59f0bc-c485-461e-aedd-8f19724b288d/balde-stella.jpg"},
-    { id: "bebidas_combo_5_51_ice", nome: "Combo 5 51 Ice", preco: 78, desc: "Combos Long Neck", porcao: "5 unid · long neck", tempo: 5, sub: "Combos Long Neck", ativo: true, novo: false, img: "/__l5e/assets-v1/aa166af6-18e5-4cfa-b14e-8ea83f86f7ef/balde-generico.jpg"},
-    { id: "bebidas_combo_5_budweiser", nome: "Combo 5 Budweiser", preco: 60, desc: "Combos Long Neck", porcao: "5 unid · long neck", tempo: 5, sub: "Combos Long Neck", ativo: true, novo: false, img: "/__l5e/assets-v1/a66580b3-14f3-401d-a09b-d9b6ba0316de/balde-budweiser.jpg"},
-    { id: "bebidas_combo_5_corona", nome: "Combo 5 Corona", preco: 78, desc: "Combos Long Neck", porcao: "5 unid · long neck", tempo: 5, sub: "Combos Long Neck", ativo: true, novo: false, img: "/__l5e/assets-v1/aa166af6-18e5-4cfa-b14e-8ea83f86f7ef/balde-generico.jpg"},
-    { id: "bebidas_combo_5_corona_s_alcool", nome: "Combo 5 Corona s/ Álcool", preco: 78, desc: "Combos Long Neck", porcao: "5 unid · long neck", tempo: 5, sub: "Combos Long Neck", ativo: true, novo: false, img: "/__l5e/assets-v1/aa166af6-18e5-4cfa-b14e-8ea83f86f7ef/balde-generico.jpg"},
-    { id: "bebidas_combo_5_coronita", nome: "Combo 5 Coronita", preco: 66, desc: "Combos Long Neck", porcao: "5 unid · long neck", tempo: 5, sub: "Combos Long Neck", ativo: true, novo: false, img: "/__l5e/assets-v1/aa166af6-18e5-4cfa-b14e-8ea83f86f7ef/balde-generico.jpg"},
-    { id: "bebidas_combo_5_heineken_s_alcool", nome: "Combo 5 Heineken / s/ Álcool", preco: 73, desc: "Combos Long Neck", porcao: "5 unid · long neck", tempo: 5, sub: "Combos Long Neck", ativo: true, novo: false, img: "/__l5e/assets-v1/71d9bb0a-3107-45c7-b393-1f53df12e315/longneck-heineken.jpg"},
-    { id: "bebidas_combo_5_ice_leev", nome: "Combo 5 Ice Leev", preco: 45, desc: "Combos Long Neck", porcao: "5 unid · long neck", tempo: 5, sub: "Combos Long Neck", ativo: true, novo: false, img: "/__l5e/assets-v1/aa166af6-18e5-4cfa-b14e-8ea83f86f7ef/balde-generico.jpg"},
-    { id: "bebidas_combo_5_imperio_ultra", nome: "Combo 5 Império Ultra", preco: 55, desc: "Combos Long Neck", porcao: "5 unid · long neck", tempo: 5, sub: "Combos Long Neck", ativo: true, novo: false, img: "/__l5e/assets-v1/aa166af6-18e5-4cfa-b14e-8ea83f86f7ef/balde-generico.jpg"},
-    { id: "bebidas_combo_5_smirnoff_ice", nome: "Combo 5 Smirnoff Ice", preco: 77, desc: "Combos Long Neck", porcao: "5 unid · long neck", tempo: 5, sub: "Combos Long Neck", ativo: true, novo: false, img: "/__l5e/assets-v1/aa166af6-18e5-4cfa-b14e-8ea83f86f7ef/balde-generico.jpg"},
-    { id: "bebidas_combo_5_stella_s_gluten", nome: "Combo 5 Stella s/ Glúten", preco: 84, desc: "Combos Long Neck", porcao: "5 unid · long neck", tempo: 5, sub: "Combos Long Neck", ativo: true, novo: false, img: "/__l5e/assets-v1/ca59f0bc-c485-461e-aedd-8f19724b288d/balde-stella.jpg"},
-    { id: "bebidas_43_sensacoes", nome: "43 Sensações", preco: 40, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: "/__l5e/assets-v1/d4a9b525-c5e8-43d9-b615-d3f6fd454c41/bebidas-caipirinhas.jpg"},
-    { id: "bebidas_aperol_spritz", nome: "Aperol Spritz", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: "/__l5e/assets-v1/e9399c87-c0ac-4aa8-b13a-ea0c6ae8f9c4/drink-aperol-spritz.jpg", mascaraPreco: true },
-    { id: "bebidas_beach_farol_drink", nome: "Beach Farol Drink", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: "/__l5e/assets-v1/0468a996-268d-400f-9ca0-c2e5ea94dbaf/drinks-caipirinhas-2.jpg"},
+    { id: "bebidas_combo_5_amstel", nome: "Combo 5 Amstel", preco: 77, desc: "Combos de Cerveja (600ml)", porcao: "5 unid · 600ml", tempo: 5, sub: "Combos de Cerveja (600ml)", ativo: true, novo: false, img: REAL_IMGS.itaipava },
+    { id: "bebidas_combo_5_antarctica_original", nome: "Combo 5 Antarctica Original", preco: 93, desc: "Combos de Cerveja (600ml)", porcao: "5 unid · 600ml", tempo: 5, sub: "Combos de Cerveja (600ml)", ativo: true, novo: false, img: REAL_IMGS.itaipava },
+    { id: "bebidas_combo_5_heineken", nome: "Combo 5 Heineken", preco: 93, desc: "Combos de Cerveja (600ml)", porcao: "5 unid · 600ml", tempo: 5, sub: "Combos de Cerveja (600ml)", ativo: true, novo: false, img: REAL_IMGS.heineken },
+    { id: "bebidas_combo_5_imperio_lager", nome: "Combo 5 Império Lager", preco: 76, desc: "Combos de Cerveja (600ml)", porcao: "5 unid · 600ml", tempo: 5, sub: "Combos de Cerveja (600ml)", ativo: true, novo: false, img: REAL_IMGS.itaipava },
+    { id: "bebidas_combo_5_itaipava", nome: "Combo 5 Itaipava", preco: 53, desc: "Combos de Cerveja (600ml)", porcao: "5 unid · 600ml", tempo: 5, sub: "Combos de Cerveja (600ml)", ativo: true, novo: false, img: REAL_IMGS.itaipava },
+    { id: "bebidas_combo_5_stella_artois", nome: "Combo 5 Stella Artois", preco: 93, desc: "Combos de Cerveja (600ml)", porcao: "5 unid · 600ml", tempo: 5, sub: "Combos de Cerveja (600ml)", ativo: true, novo: false, img: REAL_IMGS.stella },
+    { id: "bebidas_combo_5_51_ice", nome: "Combo 5 51 Ice", preco: 78, desc: "Combos Long Neck", porcao: "5 unid · long neck", tempo: 5, sub: "Combos Long Neck", ativo: true, novo: false, img: "" },
+    { id: "bebidas_combo_5_budweiser", nome: "Combo 5 Budweiser", preco: 60, desc: "Combos Long Neck", porcao: "5 unid · long neck", tempo: 5, sub: "Combos Long Neck", ativo: true, novo: false, img: REAL_IMGS.itaipava },
+    { id: "bebidas_combo_5_corona", nome: "Combo 5 Corona", preco: 78, desc: "Combos Long Neck", porcao: "5 unid · long neck", tempo: 5, sub: "Combos Long Neck", ativo: true, novo: false, img: REAL_IMGS.stella },
+    { id: "bebidas_combo_5_corona_s_alcool", nome: "Combo 5 Corona s/ Álcool", preco: 78, desc: "Combos Long Neck", porcao: "5 unid · long neck", tempo: 5, sub: "Combos Long Neck", ativo: true, novo: false, img: REAL_IMGS.stella },
+    { id: "bebidas_combo_5_coronita", nome: "Combo 5 Coronita", preco: 66, desc: "Combos Long Neck", porcao: "5 unid · long neck", tempo: 5, sub: "Combos Long Neck", ativo: true, novo: false, img: REAL_IMGS.stella },
+    { id: "bebidas_combo_5_heineken_s_alcool", nome: "Combo 5 Heineken / s/ Álcool", preco: 73, desc: "Combos Long Neck", porcao: "5 unid · long neck", tempo: 5, sub: "Combos Long Neck", ativo: true, novo: false, img: REAL_IMGS.heineken },
+    { id: "bebidas_combo_5_ice_leev", nome: "Combo 5 Ice Leev", preco: 45, desc: "Combos Long Neck", porcao: "5 unid · long neck", tempo: 5, sub: "Combos Long Neck", ativo: true, novo: false, img: "" },
+    { id: "bebidas_combo_5_imperio_lager", nome: "Combo 5 Império Lager", preco: 53, desc: "Combos Long Neck", porcao: "5 unid · long neck", tempo: 5, sub: "Combos Long Neck", ativo: true, novo: false, img: REAL_IMGS.itaipava },
+    { id: "bebidas_combo_5_imperio_ultra", nome: "Combo 5 Império Ultra", preco: 55, desc: "Combos Long Neck", porcao: "5 unid · long neck", tempo: 5, sub: "Combos Long Neck", ativo: true, novo: false, img: REAL_IMGS.itaipava },
+    { id: "bebidas_combo_5_smirnoff_ice", nome: "Combo 5 Smirnoff Ice", preco: 77, desc: "Combos Long Neck", porcao: "5 unid · long neck", tempo: 5, sub: "Combos Long Neck", ativo: true, novo: false, img: "" },
+    { id: "bebidas_combo_5_stella_s_gluten", nome: "Combo 5 Stella s/ Glúten", preco: 84, desc: "Combos Long Neck", porcao: "5 unid · long neck", tempo: 5, sub: "Combos Long Neck", ativo: true, novo: false, img: REAL_IMGS.stella },
+    { id: "bebidas_43_sensacoes", nome: "43 Sensações", preco: 40, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: REAL_IMGS.bavaria },
+    { id: "bebidas_aperol_spritz", nome: "Aperol Spritz", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: REAL_IMGS.bavaria },
+    { id: "bebidas_beach_farol_drink", nome: "Beach Farol Drink", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: REAL_IMGS.bavaria },
     { id: "bebidas_bloody_mary", nome: "Bloody Mary", preco: 40, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: REAL_IMGS.bavaria },
-    { id: "bebidas_blue_lagoon", nome: "Blue Lagoon", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: "/__l5e/assets-v1/0872e52f-4355-4cf5-b2f5-0358ce49c5dd/drink-blue-lagoon.jpg", mascaraPreco: true },
-    { id: "bebidas_bob_marley", nome: "Bob Marley", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: "/__l5e/assets-v1/11e8dc9b-6b42-4ab0-8f61-e9a8de556611/drink-bob-marley.jpg", mascaraPreco: true },
+    { id: "bebidas_blue_lagoon", nome: "Blue Lagoon", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: REAL_IMGS.bavaria },
+    { id: "bebidas_bob_marley", nome: "Bob Marley", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: REAL_IMGS.bavaria },
     { id: "bebidas_chivas_collins", nome: "Chivas Collins", preco: 40, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: REAL_IMGS.bavaria },
     { id: "bebidas_choc_drink", nome: "Choc Drink", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: REAL_IMGS.bavaria },
     { id: "bebidas_coquetel_de_morango", nome: "Coquetel de Morango", preco: 30, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: REAL_IMGS.bavaria },
-    { id: "bebidas_gin_tonica", nome: "Gin Tônica", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: "/__l5e/assets-v1/4f5662a9-ec54-4f43-9a0e-838fb52e6ee5/drink-gin-tonica.jpg", mascaraPreco: true },
+    { id: "bebidas_gin_tonica", nome: "Gin Tônica", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: REAL_IMGS.bavaria },
     { id: "bebidas_magic_candy", nome: "Magic Candy", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: REAL_IMGS.bavaria },
-    { id: "bebidas_margarita_frozen", nome: "Margarita Frozen", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: "/__l5e/assets-v1/e474bb3c-f960-4932-9a15-ff29cad4bc8c/drink-margarita-frozen.jpg", mascaraPreco: true },
-    { id: "bebidas_mojito", nome: "Mojito", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: "/__l5e/assets-v1/01249eca-bf79-4f6d-9f36-45ed6c47d257/drink-mojito.jpg", mascaraPreco: true },
-    { id: "bebidas_moscow_mule", nome: "Moscow Mule", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: "/__l5e/assets-v1/847864de-2863-4bff-88bc-d1c764689d92/drink-moscow-mule.jpg", mascaraPreco: true },
-    { id: "bebidas_sangria", nome: "Sangria", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: "/__l5e/assets-v1/b1efddcb-56fe-4511-b1fd-2bdbda098f81/drink-sangria.jpg", mascaraPreco: true },
-    { id: "bebidas_sex_on_the_beach", nome: "Sex on the Beach", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: "/__l5e/assets-v1/41bdbd54-d4a1-4522-ab49-7018cc2e6de9/drink-sex-on-the-beach.jpg", mascaraPreco: true },
+    { id: "bebidas_margarita_frozen", nome: "Margarita Frozen", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: REAL_IMGS.bavaria },
+    { id: "bebidas_mojito", nome: "Mojito", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: REAL_IMGS.bavaria },
+    { id: "bebidas_moscow_mule", nome: "Moscow Mule", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: REAL_IMGS.bavaria },
+    { id: "bebidas_sangria", nome: "Sangria", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: REAL_IMGS.bavaria },
+    { id: "bebidas_sex_on_the_beach", nome: "Sex on the Beach", preco: 35, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: REAL_IMGS.bavaria },
     { id: "bebidas_spicy_lemonade", nome: "Spicy Lemonade", preco: 40, desc: "Drinks", porcao: "taça 300ml", tempo: 8, sub: "Drinks", ativo: true, novo: false, img: REAL_IMGS.bavaria },
-    { id: "bebidas_absolut_garrafa", nome: "Absolut Garrafa", preco: 220, desc: "Doses, Garrafas & Não Alcoólicos", porcao: "serviço", tempo: 5, sub: "Doses, Garrafas & Não Alcoólicos", ativo: true, novo: false, img: "/__l5e/assets-v1/c9d17ab5-8526-4b20-9ab2-bfb65bfb88c9/vodka-absolut.jpg"},
+    { id: "bebidas_absolut_garrafa", nome: "Absolut Garrafa", preco: 220, desc: "Doses, Garrafas & Não Alcoólicos", porcao: "serviço", tempo: 5, sub: "Doses, Garrafas & Não Alcoólicos", ativo: true, novo: false, img: "" },
     { id: "bebidas_agua_mineral", nome: "Água Mineral", preco: 6, desc: "Doses, Garrafas & Não Alcoólicos", porcao: "serviço", tempo: 5, sub: "Doses, Garrafas & Não Alcoólicos", ativo: true, novo: false, img: REAL_IMGS.capa_coco },
     { id: "bebidas_agua_tonica", nome: "Água Tônica", preco: 7, desc: "Doses, Garrafas & Não Alcoólicos", porcao: "serviço", tempo: 5, sub: "Doses, Garrafas & Não Alcoólicos", ativo: true, novo: false, img: REAL_IMGS.capa_coco },
-    { id: "bebidas_chivas_regal_garrafa", nome: "Chivas Regal Garrafa", preco: 300, desc: "Doses, Garrafas & Não Alcoólicos", porcao: "serviço", tempo: 5, sub: "Doses, Garrafas & Não Alcoólicos", ativo: true, novo: false, img: "/__l5e/assets-v1/a7e06280-17a6-40d0-a127-b34ab1509c9e/whisky-chivas.jpg"},
-    { id: "bebidas_coco_verde_suco_limao", nome: "Coco Verde / Suco Limão", preco: 8, desc: "Doses, Garrafas & Não Alcoólicos", porcao: "serviço", tempo: 5, sub: "Doses, Garrafas & Não Alcoólicos", ativo: true, novo: false, img: "/__l5e/assets-v1/3b69dc25-8328-45de-9148-f976ccd8ec6d/bebidas-coco.jpg"},
-    { id: "bebidas_combo_whisky_buchanan_s", nome: "Combo Whisky Buchanan's", preco: 400, desc: "Doses, Garrafas & Não Alcoólicos", porcao: "serviço", tempo: 5, sub: "Doses, Garrafas & Não Alcoólicos", ativo: true, novo: false, img: "/__l5e/assets-v1/793c20ba-677a-4490-9de6-b9cba351cd36/whisky-buchanans.jpg"},
-    { id: "bebidas_combo_gin_tanqueray", nome: "Combo Gin Tanqueray", preco: 260, desc: "Gin Tanqueray + aguas tonicas", porcao: "garrafa 750ml", tempo: 5, sub: "Doses, Garrafas & Nao Alcoolicos", ativo: true, novo: true, img: "/__l5e/assets-v1/73d5deb6-b429-4c41-9776-3a097e48e7f2/combo-gin-tanqueray.jpg", mascaraPreco: true },
-    { id: "bebidas_combo_gin_beefeater", nome: "Combo Gin Beefeater", preco: 230, desc: "Gin Beefeater + aguas tonicas", porcao: "garrafa 750ml", tempo: 5, sub: "Doses, Garrafas & Nao Alcoolicos", ativo: true, novo: true, img: "/__l5e/assets-v1/e137da21-c28e-4ec9-b311-b581308da7c0/combo-gin-beefeater.jpg", mascaraPreco: true },
-    { id: "bebidas_gelo_de_coco", nome: "Gelo de Coco", preco: 8, desc: "Doses, Garrafas & Não Alcoólicos", porcao: "serviço", tempo: 5, sub: "Doses, Garrafas & Não Alcoólicos", ativo: true, novo: false, img: "/__l5e/assets-v1/6274269d-58ef-4bba-832f-c0b39f217902/gelo-de-coco.jpg", mascaraPreco: true },
-    { id: "bebidas_gold_label", nome: "Gold Label", preco: 470, desc: "Doses, Garrafas & Não Alcoólicos", porcao: "serviço", tempo: 5, sub: "Doses, Garrafas & Não Alcoólicos", ativo: true, novo: false, img: "/__l5e/assets-v1/070d833d-c660-4a14-a687-37334442586d/whisky-gold-label.jpg"},
+    { id: "bebidas_chivas_regal_garrafa", nome: "Chivas Regal Garrafa", preco: 300, desc: "Doses, Garrafas & Não Alcoólicos", porcao: "serviço", tempo: 5, sub: "Doses, Garrafas & Não Alcoólicos", ativo: true, novo: false, img: "" },
+    { id: "bebidas_coco_verde_suco_limao", nome: "Coco Verde / Suco Limão", preco: 8, desc: "Doses, Garrafas & Não Alcoólicos", porcao: "serviço", tempo: 5, sub: "Doses, Garrafas & Não Alcoólicos", ativo: true, novo: false, img: REAL_IMGS.capa_coco },
+    { id: "bebidas_combo_whisky_buchanan_s", nome: "Combo Whisky Buchanan's", preco: 400, desc: "Doses, Garrafas & Não Alcoólicos", porcao: "serviço", tempo: 5, sub: "Doses, Garrafas & Não Alcoólicos", ativo: true, novo: false, img: "" },
+    { id: "bebidas_gelo_de_coco", nome: "Gelo de Coco", preco: 8, desc: "Doses, Garrafas & Não Alcoólicos", porcao: "serviço", tempo: 5, sub: "Doses, Garrafas & Não Alcoólicos", ativo: true, novo: false, img: REAL_IMGS.capa_coco },
+    { id: "bebidas_gold_label", nome: "Gold Label", preco: 470, desc: "Doses, Garrafas & Não Alcoólicos", porcao: "serviço", tempo: 5, sub: "Doses, Garrafas & Não Alcoólicos", ativo: true, novo: false, img: "" },
     { id: "bebidas_h2o_red_bull", nome: "H2O / Red Bull", preco: 15, desc: "Doses, Garrafas & Não Alcoólicos", porcao: "serviço", tempo: 5, sub: "Doses, Garrafas & Não Alcoólicos", ativo: true, novo: false, img: REAL_IMGS.capa_coco },
-    { id: "bebidas_old_parr", nome: "Old Parr", preco: 380, desc: "Doses, Garrafas & Não Alcoólicos", porcao: "serviço", tempo: 5, sub: "Doses, Garrafas & Não Alcoólicos", ativo: true, novo: false, img: "/__l5e/assets-v1/587f8677-0f38-4683-8f5c-ee71970ed06b/whisky-old-parr.jpg"},
-    { id: "bebidas_red_label", nome: "Red Label", preco: 200, desc: "Doses, Garrafas & Não Alcoólicos", porcao: "serviço", tempo: 5, sub: "Doses, Garrafas & Não Alcoólicos", ativo: true, novo: false, img: "/__l5e/assets-v1/0df41efe-7bef-4dc6-a12c-614eddd53d31/whisky-red-label.jpg"},
+    { id: "bebidas_old_parr", nome: "Old Parr", preco: 380, desc: "Doses, Garrafas & Não Alcoólicos", porcao: "serviço", tempo: 5, sub: "Doses, Garrafas & Não Alcoólicos", ativo: true, novo: false, img: "" },
+    { id: "bebidas_red_label", nome: "Red Label", preco: 200, desc: "Doses, Garrafas & Não Alcoólicos", porcao: "serviço", tempo: 5, sub: "Doses, Garrafas & Não Alcoólicos", ativo: true, novo: false, img: "" },
     { id: "bebidas_refrigerante_lata", nome: "Refrigerante Lata", preco: 7, desc: "Doses, Garrafas & Não Alcoólicos", porcao: "serviço", tempo: 5, sub: "Doses, Garrafas & Não Alcoólicos", ativo: true, novo: false, img: REAL_IMGS.capa_coco },
     { id: "bebidas_sucos_jarra_500ml", nome: "Sucos Jarra 500ml", preco: 18, desc: "Doses, Garrafas & Não Alcoólicos", porcao: "serviço", tempo: 5, sub: "Doses, Garrafas & Não Alcoólicos", ativo: true, novo: false, img: REAL_IMGS.capa_coco },
   ]},
@@ -2208,13 +2197,13 @@ const DEFAULT_CATEGORIAS = [
     { id: "petiscos_sururu", nome: "Sururu", preco: 30, desc: "Caldos", porcao: "tigela 300ml", tempo: 15, sub: "Caldos", ativo: true, novo: false, img: REAL_IMGS.lambreta },
   ]},
   { id: "pratos", nome: "Pratos", icone: "🍽️", itens: [
-    { id: "pratos_bife_a_cavalo", nome: "Bife à Cavalo", preco: 50, desc: "Pratos Executivos", porcao: "individual", tempo: 25, sub: "Pratos Executivos", ativo: true, novo: false, img: "/__l5e/assets-v1/6982db5c-3dba-4c21-8355-65116fffc80d/prato-bife-a-cavalo.jpg"},
-    { id: "pratos_file_de_carne_a_parmegiana", nome: "Filé de Carne à Parmegiana", preco: 60, desc: "Pratos Executivos", porcao: "individual", tempo: 25, sub: "Pratos Executivos", ativo: true, novo: false, img: "/__l5e/assets-v1/eb29a9e6-0830-4e21-add8-295638ec1a3b/prato-file-parmegiana.jpg"},
-    { id: "pratos_file_de_frango_a_parmegiana", nome: "Filé de Frango à Parmegiana", preco: 60, desc: "Pratos Executivos", porcao: "individual", tempo: 25, sub: "Pratos Executivos", ativo: true, novo: false, img: "/__l5e/assets-v1/09e421ab-2b37-4bd1-9787-a6a609daa165/prato-parmegiana-2.jpg"},
+    { id: "pratos_bife_a_cavalo", nome: "Bife à Cavalo", preco: 50, desc: "Pratos Executivos", porcao: "individual", tempo: 25, sub: "Pratos Executivos", ativo: true, novo: false, img: REAL_IMGS.rabada },
+    { id: "pratos_file_de_carne_a_parmegiana", nome: "Filé de Carne à Parmegiana", preco: 60, desc: "Pratos Executivos", porcao: "individual", tempo: 25, sub: "Pratos Executivos", ativo: true, novo: false, img: REAL_IMGS.rabada },
+    { id: "pratos_file_de_frango_a_parmegiana", nome: "Filé de Frango à Parmegiana", preco: 60, desc: "Pratos Executivos", porcao: "individual", tempo: 25, sub: "Pratos Executivos", ativo: true, novo: false, img: REAL_IMGS.rabada },
     { id: "pratos_file_de_frango_grelhado", nome: "Filé de Frango Grelhado", preco: 60, desc: "Pratos Executivos", porcao: "individual", tempo: 25, sub: "Pratos Executivos", ativo: true, novo: false, img: "" },
-    { id: "pratos_posta_de_peixe_grelhada", nome: "Posta de Peixe Grelhada", preco: 50, desc: "Pratos Executivos", porcao: "individual", tempo: 25, sub: "Pratos Executivos", ativo: true, novo: false, img: "/__l5e/assets-v1/e030f884-5186-440a-961d-55c70f0bdd89/prato-posta-peixe.jpg"},
-    { id: "pratos_strogonoff_de_camarao", nome: "Strogonoff de Camarão", preco: 65, desc: "Pratos Executivos", porcao: "individual", tempo: 25, sub: "Pratos Executivos", ativo: true, novo: false, img: "/__l5e/assets-v1/2fc43bc1-f9f2-46ea-b159-564dc5faef91/prato-strogonoff-2.jpg"},
-    { id: "pratos_strogonoff_de_frango", nome: "Strogonoff de Frango", preco: 50, desc: "Pratos Executivos", porcao: "individual", tempo: 25, sub: "Pratos Executivos", ativo: true, novo: false, img: "/__l5e/assets-v1/63196c0f-140f-4538-a66c-0c964633ff05/prato-strogonoff-frango.jpg"},
+    { id: "pratos_posta_de_peixe_grelhada", nome: "Posta de Peixe Grelhada", preco: 50, desc: "Pratos Executivos", porcao: "individual", tempo: 25, sub: "Pratos Executivos", ativo: true, novo: false, img: REAL_IMGS.peixe_frito },
+    { id: "pratos_strogonoff_de_camarao", nome: "Strogonoff de Camarão", preco: 65, desc: "Pratos Executivos", porcao: "individual", tempo: 25, sub: "Pratos Executivos", ativo: true, novo: false, img: REAL_IMGS.camarao_coco },
+    { id: "pratos_strogonoff_de_frango", nome: "Strogonoff de Frango", preco: 50, desc: "Pratos Executivos", porcao: "individual", tempo: 25, sub: "Pratos Executivos", ativo: true, novo: false, img: "" },
     { id: "pratos_abacaxi_tropical", nome: "Abacaxi Tropical", preco: 120, desc: "Pratos Especiais", porcao: "serve 2 pessoas", tempo: 35, sub: "Pratos Especiais", ativo: true, novo: false, img: "" },
     { id: "pratos_carne_do_sol_sertaneja", nome: "Carne do Sol Sertaneja", preco: 150, desc: "Pratos Especiais", porcao: "serve 2 pessoas", tempo: 35, sub: "Pratos Especiais", ativo: true, novo: false, img: REAL_IMGS.carne_sol_polenta },
     { id: "pratos_chapa_prime", nome: "Chapa Prime", preco: 200, desc: "Pratos Especiais", porcao: "serve 2 pessoas", tempo: 35, sub: "Pratos Especiais", ativo: true, novo: false, img: REAL_IMGS.rabada },
@@ -2227,7 +2216,7 @@ const DEFAULT_CATEGORIAS = [
     { id: "pratos_salada_de_polvo", nome: "Salada de Polvo", preco: 150, desc: "Pratos Especiais", porcao: "serve 2 pessoas", tempo: 35, sub: "Pratos Especiais", ativo: true, novo: false, img: REAL_IMGS.lula },
     { id: "pratos_salada_de_polvo_com_camarao", nome: "Salada de Polvo com Camarão", preco: 180, desc: "Pratos Especiais", porcao: "serve 2 pessoas", tempo: 35, sub: "Pratos Especiais", ativo: true, novo: false, img: REAL_IMGS.camarao_coco },
     { id: "pratos_salmao_na_chapa_com_camarao", nome: "Salmão na Chapa com Camarão", preco: 170, desc: "Pratos Especiais", porcao: "serve 2 pessoas", tempo: 35, sub: "Pratos Especiais", ativo: true, novo: false, img: REAL_IMGS.peixe_frito },
-    { id: "pratos_corvina_frita_inteira", nome: "Corvina Frita Inteira", preco: 170, desc: "Moquecas & Peixes Fritos", porcao: "serve 2 pessoas", tempo: 40, sub: "Moquecas & Peixes Fritos", ativo: true, novo: false, img: "/__l5e/assets-v1/638a961a-cf53-4bc7-abdd-2ab9c1009cc0/prato-peixe-chapa.jpg"},
+    { id: "pratos_corvina_frita_inteira", nome: "Corvina Frita Inteira", preco: 170, desc: "Moquecas & Peixes Fritos", porcao: "serve 2 pessoas", tempo: 40, sub: "Moquecas & Peixes Fritos", ativo: true, novo: false, img: REAL_IMGS.peixe_frito },
     { id: "pratos_mariscada", nome: "Mariscada", preco: 270, desc: "Moquecas & Peixes Fritos", porcao: "serve 2 pessoas", tempo: 40, sub: "Moquecas & Peixes Fritos", ativo: true, novo: false, img: REAL_IMGS.moqueca },
     { id: "pratos_moqueca_de_camarao", nome: "Moqueca de Camarão", preco: 200, desc: "Moquecas & Peixes Fritos", porcao: "serve 2 pessoas", tempo: 40, sub: "Moquecas & Peixes Fritos", ativo: true, novo: false, img: REAL_IMGS.moqueca },
     { id: "pratos_moqueca_de_corvina", nome: "Moqueca de Corvina", preco: 170, desc: "Moquecas & Peixes Fritos", porcao: "serve 2 pessoas", tempo: 40, sub: "Moquecas & Peixes Fritos", ativo: true, novo: false, img: REAL_IMGS.peixe_frito },
@@ -2303,27 +2292,10 @@ let categorias = (function(){
     const savedCat = saved.find(s => s.id === defCat.id);
     return {
       ...defCat,
-      itens: (function(){
-        const savedItens = (savedCat && savedCat.itens) ? savedCat.itens : [];
-        const mesclados = defCat.itens.map(defIt => {
-          const savedIt = savedItens.find(s=>s.id===defIt.id);
-          if(!savedIt) return defIt;
-          return {
-            ...defIt,
-            nome: savedIt.nome || defIt.nome,
-            desc: savedIt.desc || defIt.desc,
-            porcao: savedIt.porcao || defIt.porcao,
-            tempo: savedIt.tempo || defIt.tempo,
-            preco: savedIt.preco || defIt.preco,
-            preco_praia: savedIt.preco_praia, preco_restaurante: savedIt.preco_restaurante,
-            ativo: savedIt.ativo !== false,
-            mascaraPreco: (savedIt.mascaraPreco !== undefined) ? savedIt.mascaraPreco : !!defIt.mascaraPreco,
-            img: (savedIt.img && String(savedIt.img).indexOf("photo-1555939594") === -1) ? savedIt.img : defIt.img
-          };
-        });
-        savedItens.forEach(sit => { if(!defCat.itens.some(d=>d.id===sit.id)) mesclados.push(sit); });
-        return mesclados;
-      })()
+      itens: defCat.itens.map(defIt => {
+        const savedIt = savedCat && savedCat.itens ? savedCat.itens.find(s=>s.id===defIt.id) : null;
+        return savedIt ? {...defIt, preco: savedIt.preco||defIt.preco, ativo: savedIt.ativo!==false} : defIt;
+      })
     };
   });
 })();
@@ -2630,7 +2602,6 @@ function renderItems() {
         <div class="img-box">
           <img src="${item.img}" alt="${item.nome}" class="card-img" loading="lazy"
             onerror="this.src='https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80';this.onerror=null"/>
-          ${item.mascaraPreco ? `<span class="cc-mascara-preco">${fmtBRL(item.preco)}</span>` : ""}
           <span class="b-cat">${cat.icone} ${cat.nome.split(" ")[0]}</span>
           ${esgotado ? `<span class="b-time" style="background:#6b7280">😔 Esgotado</span>` : `<span class="b-time">⏱ ${item.tempo} min</span>`}
           ${item.novo && !esgotado ? `<span class="b-new">✨ Novidade</span>` : ""}
@@ -3147,7 +3118,6 @@ function abrirModalNovoItem() {
   document.getElementById("edit-tempo").value = "15";
   document.getElementById("edit-img").value = "";
   document.getElementById("edit-novo-tog").classList.remove("on");
-  { const t=document.getElementById("edit-mascara-tog"); if(t) t.classList.remove("on"); }
 
   // Populate cat select
   const sel = document.getElementById("edit-cat");
@@ -3169,7 +3139,6 @@ function abrirModalEditarItem(catId, itemId) {
   document.getElementById("edit-tempo").value = item.tempo;
   document.getElementById("edit-img").value = item.img;
   document.getElementById("edit-novo-tog").classList.toggle("on", !!item.novo);
-  { const t=document.getElementById("edit-mascara-tog"); if(t) t.classList.toggle("on", !!item.mascaraPreco); }
   if (item.img) {
     const prevImg = document.getElementById("edit-img-preview");
     const prevWrap = document.getElementById("edit-img-preview-wrap");
@@ -3260,39 +3229,16 @@ async function _uploadImagemParaStorage(file) {
    1) se há arquivo selecionado → faz upload e usa a URL retornada
    2) senão, se há URL digitada → valida e usa direto (sem download/conversão)
    3) senão → mantém o placeholder padrão do sistema                         */
-function _converterArquivoParaDataURL(file) {
-  return new Promise(function(resolve, reject) {
-    var reader = new FileReader();
-    reader.onload = function(ev) {
-      var im = new Image();
-      im.onload = function() {
-        var max = 900;
-        var esc = Math.min(1, max / Math.max(im.width, im.height));
-        var w = Math.max(1, Math.round(im.width * esc));
-        var h = Math.max(1, Math.round(im.height * esc));
-        var cv = document.createElement("canvas");
-        cv.width = w; cv.height = h;
-        cv.getContext("2d").drawImage(im, 0, 0, w, h);
-        resolve(cv.toDataURL("image/jpeg", 0.82));
-      };
-      im.onerror = function(){ reject(new Error("imagem invalida")); };
-      im.src = ev.target.result;
-    };
-    reader.onerror = function(){ reject(new Error("falha ao ler arquivo")); };
-    reader.readAsDataURL(file);
-  });
-}
-
 async function _resolverFotoItem() {
   if (_arquivoImagemSelecionado) {
     var status = document.getElementById("edit-img-upload-status");
-    if (status) status.textContent = "Processando imagem…";
+    if (status) status.textContent = "Enviando imagem…";
     try {
-      var dataUrl = await _converterArquivoParaDataURL(_arquivoImagemSelecionado);
-      if (status) status.textContent = "✅ Pronta";
-      return dataUrl;
+      var urlPublica = await _uploadImagemParaStorage(_arquivoImagemSelecionado);
+      if (status) status.textContent = "✅ Enviada";
+      return urlPublica;
     } catch (e) {
-      toast("⚠️ Nao foi possivel processar a imagem: " + e.message);
+      toast("⚠️ Falha ao enviar a imagem: " + e.message);
       if (status) status.textContent = "❌ Falhou";
       throw e;
     }
@@ -3307,11 +3253,6 @@ async function _resolverFotoItem() {
     return urlDigitada; // grava direto, sem download nem conversão
   }
 
-  var _idAtual = (document.getElementById("edit-item-id") || {}).value;
-  if (_idAtual && typeof getItem === "function") {
-    var _atual = getItem(_idAtual);
-    if (_atual && _atual.img) return _atual.img; // mantem a foto atual
-  }
   return "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80"; // placeholder padrão do sistema
 }
 
@@ -3338,8 +3279,6 @@ async function salvarItem() {
   const porcao = document.getElementById("edit-porcao").value.trim();
   const tempo  = parseInt(document.getElementById("edit-tempo").value) || 15;
   const novo   = document.getElementById("edit-novo-tog").classList.contains("on");
-  const _mt = document.getElementById("edit-mascara-tog");
-  const mascara = !!(_mt && _mt.classList.contains("on"));
   const catId  = document.getElementById("edit-cat").value;
   const itemId = document.getElementById("edit-item-id").value;
 
@@ -3359,9 +3298,9 @@ async function salvarItem() {
     // Remover do local antigo
     categorias.forEach(c => { c.itens = c.itens.filter(i => i.id !== itemId); });
     // Adicionar na nova categoria
-    cat.itens.push({id: itemId, nome, desc, preco, porcao, tempo, novo, img, mascaraPreco: mascara});
+    cat.itens.push({id: itemId, nome, desc, preco, porcao, tempo, novo, img});
   } else {
-    cat.itens.push({id: genId(), nome, desc, preco, porcao, tempo, novo, img, mascaraPreco: mascara});
+    cat.itens.push({id: genId(), nome, desc, preco, porcao, tempo, novo, img});
   }
 
   salvar("categorias", categorias);
@@ -7016,7 +6955,6 @@ renderItems = function() {
         <div class="img-box">
           <img src="${item.img}" alt="${item.nome}" class="card-img" loading="lazy"
             onerror="this.src='https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80';this.onerror=null"/>
-          ${item.mascaraPreco ? `<span class="cc-mascara-preco">${fmtBRL(item.preco)}</span>` : ""}
           <span class="b-cat">${cat.icone} ${cat.nome.split(" ")[0]}</span>
           ${esgotado
             ? `<span class="b-time" style="background:#6b7280">😔 Esgotado</span>`
@@ -18317,11 +18255,4 @@ body.cc-cardapio-full #items-wrap .cc-grade-premium .card-img{aspect-ratio:1/1!i
   else aplicar();
 })();
 </script>
-<style>
-/* BEACH FAROL - grid 2 colunas travado + mascara de preco */
-#items-wrap .cc-grade-premium, #items-wrap .grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
-#items-wrap .img-box{aspect-ratio:1/1 !important;width:100% !important;height:auto !important;overflow:hidden !important;position:relative !important;flex:none !important}
-#items-wrap .img-box img.card-img{width:100% !important;height:100% !important;object-fit:cover !important;display:block !important}
-.cc-mascara-preco{position:absolute;left:8%;right:8%;bottom:9%;z-index:5;background:#1d4ed8;color:#fff;border-radius:10px;padding:5px 8px;font-weight:900;text-align:center;font-size:clamp(.85rem,4vw,1.05rem);box-shadow:0 4px 14px rgba(15,35,64,.4);pointer-events:none}
-</style>
 </body></html>
