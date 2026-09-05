@@ -254,7 +254,7 @@ it(c,'vin_quinta_morgado','Vinho Quinta do Morgado',80,'Vinho Quinta do Morgado 
 it(c,'vin_casillero','Casillero del Diablo',120,'Vinho Casillero del Diablo.','Garrafa 750 ml',5,S)
 
 # ═════════════ SOBREMESAS & CONVENIÊNCIA ═════════════
-c = cat('sobremesas', 'Sobremesas & Conveniência', '🍦'); S = 'Picolés'
+c = cat('conveniencia', 'Sobremesas & Conveniência', '🍦'); S = 'Picolés'
 P = A('picole.jpg')
 for k, n, p in [('cookies','Cookies e Cream',18),('classico','Clássico',18),('avela','Leite e Creme de Avelã',16),
                 ('belga','Chocolate Belga c/ Brigadeiro',16),('morango_leite','Morango c/ Leite Condensado',16),
@@ -282,7 +282,7 @@ a = src.find('const DEFAULT_CATEGORIAS = ['); b = src.find('\n];', a)
 assert a > 0 and b > a
 src = src[:a] + block + src[b:]
 # versao do cache local
-src = re.sub(r'var VER="[^"]+";', 'var VER="gv_v13_beachfarol";', src, count=1)
+src = re.sub(r'var VER="[^"]+";', 'var VER="gv_v14_beachfarol";', src, count=1)
 # placeholder neutro no lugar da foto generica do unsplash
 src = re.sub(r"https://images\.unsplash\.com/photo-1555939594-58d7cb561ad1\?w=\d+&q=\d+", NOIMG, src)
 src = src.replace('String(savedIt.img).indexOf("photo-1555939594") === -1', 'String(savedIt.img).indexOf("sem-foto") === -1')
