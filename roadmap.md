@@ -13,9 +13,3 @@
 - [x] Sobremesas/petiscos/pratos com nomes e fotos originais (só preços)
 - [x] Service worker criado — console sem erros 404
 - [x] Verificado no navegador: salvar item no Admin OK + grid 2 colunas OK
-
-## Refazer cardápio (pedido 05/09)
-- [ ] Reconstruir DEFAULT_CATEGORIAS a partir do cardápio físico (títulos/subtítulos, preços novos)
-- [ ] Só fotos limpas (sem preço estampado); sem repetições; sem foto -> placeholder "Foto em breve"
-- [ ] Reaproveitar textos/fotos do index 62 onde o prato coincide
-- [ ] Validar no navegador (2 colunas, sem máscaras azuis)

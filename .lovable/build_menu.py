@@ -146,37 +146,37 @@ it(c,'cerv_imperio_600','Império Lager 600ml',18,'Cerveja Império Lager gelada
 it(c,'cerv_original_600','Antarctica Original 600ml',22,'Cerveja Antarctica Original gelada, garrafa 600ml.','600 ml',5,S)
 S = 'Long Necks'
 it(c,'ln_imperio_ultra','Império Ultra',14,'Long neck Império Ultra gelada.','Long neck',5,S)
-it(c,'ln_imperio_lager','Império Lager Long Neck',13,'Long neck Império Lager gelada.','Long neck',5,S,BALDE)
-it(c,'ln_budweiser','Budweiser Long Neck',15,'Long neck Budweiser gelada.','Long neck',5,S,BALDE)
+it(c,'ln_imperio_lager','Império Lager Long Neck',13,'Long neck Império Lager gelada.','Long neck',5,S,A('longneck-imperio-lager.jpg'))
+it(c,'ln_budweiser','Budweiser Long Neck',15,'Long neck Budweiser gelada.','Long neck',5,S,A('longneck-budweiser.jpg'))
 it(c,'ln_heineken','Heineken Long Neck',17,'Long neck Heineken gelada.','Long neck',5,S,A('longneck-heineken-balde.jpg'))
 it(c,'ln_heineken_zero','Heineken s/ Álcool',17,'Long neck Heineken 0.0 gelada.','Long neck',5,S)
-it(c,'ln_corona','Corona Long Neck',18,'Long neck Corona gelada, com limão.','Long neck',5,S,BALDE)
+it(c,'ln_corona','Corona Long Neck',18,'Long neck Corona gelada, com limão.','Long neck',5,S,A('longneck-corona.jpg'))
 it(c,'ln_corona_zero','Corona s/ Álcool',18,'Long neck Corona Cero gelada.','Long neck',5,S,A('longneck-corona-zero.webp'))
 it(c,'ln_coronita','Coronita 210ml',14,'Coronita gelada, 210ml.','210 ml',5,S)
 it(c,'ln_stella_gold','Stella Gold s/ Glúten',17,'Long neck Stella Artois Gold sem glúten gelada.','Long neck',5,S,A('longneck-stella-sem-gluten.jpg'))
 it(c,'ln_malzbier','Malzbier Lata ou Long Neck',16,'Malzbier gelada, lata ou long neck.','Unidade',5,S)
-it(c,'ln_ice_smirnoff','Ice Smirnoff',18,'Smirnoff Ice gelada.','Long neck',5,S,BALDE)
-it(c,'ln_ice_51','Ice 51',16,'51 Ice gelada.','Long neck',5,S,BALDE)
+it(c,'ln_ice_smirnoff','Ice Smirnoff',18,'Smirnoff Ice gelada.','Long neck',5,S,A('longneck-smirnoff-ice.jpg'))
+it(c,'ln_ice_51','Ice 51',16,'51 Ice gelada.','Long neck',5,S,A('longneck-51-ice.jpg'))
 it(c,'ln_ice_leev','Ice Leev',12,'Ice Leev gelada.','Long neck',5,S)
 S = 'Combos – 5 Cervejas 600ml'
 it(c,'combo600_itaipava','Combo 5 Itaipava 600ml',53,'Balde com 5 garrafas Itaipava 600ml geladas.','5 un · 600 ml',5,S,A('combo-itaipava-600.jpg'))
-it(c,'combo600_amstel','Combo 5 Amstel 600ml',77,'Balde com 5 garrafas Amstel 600ml geladas.','5 un · 600 ml',5,S,BALDE)
-it(c,'combo600_stella','Combo 5 Stella Artois 600ml',93,'Balde com 5 garrafas Stella Artois 600ml geladas.','5 un · 600 ml',5,S,BALDE)
+it(c,'combo600_amstel','Combo 5 Amstel 600ml',77,'Balde com 5 garrafas Amstel 600ml geladas.','5 un · 600 ml',5,S,A('combo-amstel-600.jpg'))
+it(c,'combo600_stella','Combo 5 Stella Artois 600ml',93,'Balde com 5 garrafas Stella Artois 600ml geladas.','5 un · 600 ml',5,S,A('combo-stella-longneck.jpg'))
 it(c,'combo600_heineken','Combo 5 Heineken 600ml',93,'Balde com 5 garrafas Heineken 600ml geladas.','5 un · 600 ml',5,S,A('combo-heineken-600.jpg'))
 it(c,'combo600_imperio','Combo 5 Império Lager 600ml',76,'Balde com 5 garrafas Império Lager 600ml geladas.','5 un · 600 ml',5,S,BALDE)
-it(c,'combo600_original','Combo 5 Antarctica Original 600ml',93,'Balde com 5 garrafas Antarctica Original 600ml geladas.','5 un · 600 ml',5,S,BALDE)
+it(c,'combo600_original','Combo 5 Antarctica Original 600ml',93,'Balde com 5 garrafas Antarctica Original 600ml geladas.','5 un · 600 ml',5,S,A('combo-original-600.jpg'))
 S = 'Combos – 5 Long Necks'
-it(c,'comboln_budweiser','Combo 5 Budweiser',60,'Balde com 5 long necks Budweiser geladas.','5 long necks',5,S,BALDE)
-it(c,'comboln_corona','Combo 5 Corona',78,'Balde com 5 long necks Corona geladas.','5 long necks',5,S,BALDE)
+it(c,'comboln_budweiser','Combo 5 Budweiser',60,'Balde com 5 long necks Budweiser geladas.','5 long necks',5,S,A('combo-longneck-budweiser.jpg'))
+it(c,'comboln_corona','Combo 5 Corona',78,'Balde com 5 long necks Corona geladas.','5 long necks',5,S,A('longneck-corona.jpg'))
 it(c,'comboln_heineken','Combo 5 Heineken',73,'Balde com 5 long necks Heineken geladas.','5 long necks',5,S,A('combo-longneck-heineken.jpg'))
 it(c,'comboln_heineken_zero','Combo 5 Heineken s/ Álcool',73,'Balde com 5 long necks Heineken 0.0 geladas.','5 long necks',5,S,A('combo-heineken-prata.jpg'))
 it(c,'comboln_coronita','Combo 5 Coronita',66,'Balde com 5 Coronitas geladas.','5 un · 210 ml',5,S,BALDE)
 it(c,'comboln_corona_zero','Combo 5 Corona s/ Álcool',78,'Balde com 5 long necks Corona Cero geladas.','5 long necks',5,S,A('longneck-corona-zero.webp'))
-it(c,'comboln_imperio_lager','Combo 5 Império Lager',53,'Balde com 5 long necks Império Lager geladas.','5 long necks',5,S,BALDE)
+it(c,'comboln_imperio_lager','Combo 5 Império Lager',53,'Balde com 5 long necks Império Lager geladas.','5 long necks',5,S,A('longneck-imperio-lager.jpg'))
 it(c,'comboln_imperio_ultra','Combo 5 Império Ultra',55,'Balde com 5 long necks Império Ultra geladas.','5 long necks',5,S,BALDE)
 it(c,'comboln_stella_gluten','Combo 5 Stella s/ Glúten',84,'Balde com 5 long necks Stella Gold sem glúten geladas.','5 long necks',5,S,A('longneck-stella-sem-gluten.jpg'))
-it(c,'comboln_smirnoff','Combo 5 Smirnoff Ice',77,'Balde com 5 unidades Smirnoff Ice geladas.','5 unidades',5,S,BALDE)
-it(c,'comboln_51ice','Combo 5 51 Ice',78,'Balde com 5 unidades 51 Ice geladas.','5 unidades',5,S,BALDE)
+it(c,'comboln_smirnoff','Combo 5 Smirnoff Ice',77,'Balde com 5 unidades Smirnoff Ice geladas.','5 unidades',5,S,A('longneck-smirnoff-ice.jpg'))
+it(c,'comboln_51ice','Combo 5 51 Ice',78,'Balde com 5 unidades 51 Ice geladas.','5 unidades',5,S,A('longneck-51-ice.jpg'))
 it(c,'comboln_ice_leev','Combo 5 Ice Leev',45,'Balde com 5 long necks Ice Leev geladas.','5 long necks',5,S,BALDE)
 S = 'Drinks'
 it(c,'drk_mojito','Mojito',35,'Suco de limão, água com gás, rum e hortelã.','Taça 300 ml',8,S)
@@ -254,7 +254,7 @@ it(c,'vin_quinta_morgado','Vinho Quinta do Morgado',80,'Vinho Quinta do Morgado 
 it(c,'vin_casillero','Casillero del Diablo',120,'Vinho Casillero del Diablo.','Garrafa 750 ml',5,S)
 
 # ═════════════ SOBREMESAS & CONVENIÊNCIA ═════════════
-c = cat('conveniencia', 'Sobremesas & Conveniência', '🍦'); S = 'Picolés'
+c = cat('sobremesas', 'Sobremesas & Conveniência', '🍦'); S = 'Picolés'
 P = A('picole.jpg')
 for k, n, p in [('cookies','Cookies e Cream',18),('classico','Clássico',18),('avela','Leite e Creme de Avelã',16),
                 ('belga','Chocolate Belga c/ Brigadeiro',16),('morango_leite','Morango c/ Leite Condensado',16),
@@ -282,7 +282,7 @@ a = src.find('const DEFAULT_CATEGORIAS = ['); b = src.find('\n];', a)
 assert a > 0 and b > a
 src = src[:a] + block + src[b:]
 # versao do cache local
-src = re.sub(r'var VER="[^"]+";', 'var VER="gv_v15_beachfarol";', src, count=1)
+src = re.sub(r'var VER="[^"]+";', 'var VER="gv_v13_beachfarol";', src, count=1)
 # placeholder neutro no lugar da foto generica do unsplash
 src = re.sub(r"https://images\.unsplash\.com/photo-1555939594-58d7cb561ad1\?w=\d+&q=\d+", NOIMG, src)
 src = src.replace('String(savedIt.img).indexOf("photo-1555939594") === -1', 'String(savedIt.img).indexOf("sem-foto") === -1')
