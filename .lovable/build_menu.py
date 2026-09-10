@@ -267,6 +267,17 @@ for k, n, p in [('carlton','Carlton',20),('hollywood','Hollywood',18),('lucky','
     it(c,'conv_'+k,n,p,n+'.','1 unidade',1,S)
 
 # ---------- serializa ----------
+# Uma foto real só pode representar um item. Repetições viram "Foto em breve"
+# para o Admin receber a imagem correta depois, sem enganar o cliente.
+usadas = set()
+for grupo in CATS:
+    for item in grupo['itens']:
+        foto = item['img']
+        if foto != NOIMG and foto in usadas:
+            item['img'] = NOIMG
+        elif foto != NOIMG:
+            usadas.add(foto)
+
 def js(v):
     return json.dumps(v, ensure_ascii=False)
 lines = ['const DEFAULT_CATEGORIAS = [']
