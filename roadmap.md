@@ -13,3 +13,12 @@
 - [x] Sobremesas/petiscos/pratos com nomes e fotos originais (só preços)
 - [x] Service worker criado — console sem erros 404
 - [x] Verificado no navegador: salvar item no Admin OK + grid 2 colunas OK
+
+## Refação solicitada
+- [x] Manter todo o sistema atual; aproveitar do index 62 somente o cardápio
+- [x] Restaurar o cardápio antigo do index 62 como base de pratos e textos
+- [x] Organizar títulos e subtítulos pelos grupos do cardápio físico
+- [x] Aplicar somente os preços do cardápio físico
+- [x] Usar apenas imagens limpas; nenhuma imagem com preço estampado
+- [x] Não repetir imagens em pratos diferentes; sem foto adequada, deixar “Foto em breve”
+- [x] Validar visualmente petiscos, pratos, bebidas e sobremesas
